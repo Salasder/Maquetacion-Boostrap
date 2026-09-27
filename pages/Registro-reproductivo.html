@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Registro Reproductivo</title>
+
+    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/navbars.css">
+
+    <script src="https://kit.fontawesome.com/352372337f.js" crossorigin="anonymous"></script>
+
+    <style>
+        body {
+            background-color: #f8f8f5;
+        }
+
+        .card {
+            border: 1px solid #e2e2e2;
+            border-radius: 8px;
+        }
+
+        .form-label {
+            font-size: 13px;
+            color: #555;
+            margin-bottom: 6px;
+        }
+
+        .form-control,
+        .form-select {
+            background-color: #fafaf8;
+            border-color: #e5e5e5;
+            font-size: 13px;
+        }
+
+        .recomendacion {
+            background-color: #f1f7ef;
+            border-radius: 7px;
+            padding: 14px;
+        }
+
+        .recomendacion p {
+            font-size: 12px;
+            color: #276b32;
+            margin-bottom: 7px;
+        }
+
+        .recomendacion strong {
+            font-size: 13px;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .tabs-reproductivas {
+            border-bottom: 1px solid #ddd;
+        }
+
+        .tabs-reproductivas .nav-link {
+            color: #666;
+            font-size: 12px;
+            border: none;
+            padding: 10px 15px;
+        }
+
+        .tabs-reproductivas .nav-link.active {
+            color: #185c27;
+            border-bottom: 2px solid #185c27;
+            background: transparent;
+        }
+
+        .registro-evento {
+            border: 1px solid #eeeeee;
+            border-radius: 6px;
+            padding: 12px 15px;
+        }
+
+        .registro-evento strong {
+            font-size: 13px;
+        }
+
+        .registro-evento small {
+            color: #999;
+            font-size: 11px;
+        }
+
+        .estado-pendiente {
+            background-color: #fff1a8;
+            color: #856404;
+            font-size: 10px;
+            padding: 5px 8px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="row">
+        <div class="sidebar border border-right col-md-3 col-lg-2 p-0 fondo-menu">
+            <div class="offcanvas-md offcanvas-end fondo-menu" tabindex="-1" id="sidebarMenu">
+                <div class="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center gap-2 text-light" href="#">
+                                <i class="fa fa-cow"></i>TERRABOVINOS
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center gap-2 text-light" href="#">
+                                <div class="usuario-info">
+                                    <div class="nombre-usuario">Daniel Salas
+                                    </div>
+                                    <div class="rol-usuario">Administrador
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center gap-2 text-light" href="#"><i
+                                    class="fa fa-chart-line"></i>
+                                Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center gap-2 text-light" href="#"><i
+                                    class="fa fa-cow"></i>
+                                Mi ganado
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center gap-2 text-light" href="#"><i
+                                    class="fa fa-heart"></i>
+                                Sanidad
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center gap-2 text-light" href="Alimentacion.html"><i
+                                    class="fa fa-utensils"></i>
+                                Alimentación
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center gap-2 active text-light" href="Reproductores.html"><i
+                                    class="fa fa-venus-mars"></i>
+                                Reproducción
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center gap-2 text-light" href="#"><i
+                                    class="fa fa-chart-line"></i>
+                                Producción
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center gap-2 text-light" href="#"><i
+                                    class="fa fa-map"></i>
+                                Potreros
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center gap-2 text-light" href="#"><i
+                                    class="fa fa-money-check-dollar"></i>
+                                Gestión Comercial
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center gap-2 text-light" href="#"><i
+                                    class="fa fa-boxes-stacked"></i>
+                                Inventario e Insumos
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center gap-2 text-light" href="#"><i
+                                    class="fa fa-chalkboard-user"></i>
+                                Aprende
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center gap-2 text-light" href="#"><i
+                                    class="fa fa-chart-column"></i>
+                                Reportes
+                            </a>
+                        </li>
+                        <hr class="my-3">
+                    </ul>
+                    <ul class="nav flex-column mb-auto">
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center gap-2 text-light" href="#"><i
+                                    class="fa fa-gear"></i>
+                                Configuración
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center gap-2 text-light" href="#"><i
+                                    class="fa fa-door-closed"></i>
+                                Cerrar Sesión
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+            <nav class="navbar navbar-header">
+                <div class="container-fluid">
+                    <div class="servicio">
+                        <div class="servicio-info">
+                            <h2>Registro Reproductivo</h2>
+                            <p>Gestión de monta, inseminación y planificación genética</p>
+                        </div>
+                        <button class="btn-reproductores"><i class="fa fa-bell"></i></button>
+                    </div>
+                </div>
+            </nav>
+            <hr>
+            <div class="row g-4 mb-4">
+                <div class="col-lg-6">
+                    <div class="card shadow-sm h-100">
+                        <div class="card-body">
+                            <h2 class="h5 mb-4">Registrar Monta / Inseminación</h2>
+                            <div class="mb-3">
+                                <label class="form-label">Hembra receptora</label>
+                                <input type="text" class="form-control" value="TB001 - Lucero">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Estado reproductivo actual</label>
+                                <input type="text" class="form-control" value="Disponible para reproducción">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Macho reproductor</label>
+                                <input type="text" class="form-control" value="TB002 - Relámpago">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Método de reproducción</label>
+                                <select class="form-select">
+                                    <option selected>Monta natural</option>
+                                    <option>Inseminación artificial</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Fecha del evento</label>
+                                <input type="date" class="form-control" value="2026-08-08">
+                            </div>
+                            <a href="Eventos-reproductivos.html" class="btn btn-success w-100">
+                                Registrar evento reproductivo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card shadow-sm h-100">
+                        <div class="card-body">
+                            <h2 class="h5 mb-4">Planificar Enrazamiento Genético</h2>
+                            <div class="mb-3">
+                                <label class="form-label">Raza de origen seleccionada</label>
+                                <select class="form-select">
+                                    <option selected>Brahma</option>
+                                    <option>Holstein</option>
+                                    <option>Angus</option>
+                                </select>
+                            </div>
+                            <!--agregar iconos-->
+                            <div class="recomendacion">
+
+                                <strong>
+                                    Cruce Recomendado:
+                                    Brahman × Holstein (F1)
+                                </strong>
+
+                                <p>
+                                    ✓ Excelente Adaptación al Trópico
+                                    de la progenie
+                                </p>
+
+                                <p>
+                                    ✓ Alta Resistencia a plagas
+                                    externas y parásitos
+                                </p>
+
+                                <p>
+                                    ✓ Gran Ganancia de peso en
+                                    novillas nacidas
+                                </p>
+                            </div>
+                            <a href="Eventos-reproductivos.html" class="btn btn-success w-100">
+                                Registrar evento reproductivo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card shadow-sm mb-4">
+                <div class="card-body">
+                    <ul class="nav tabs-reproductivas mb-3">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">Montas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Inseminaciones</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Gestaciones</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Partos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Nacimientos</a>
+                        </li>
+                    </ul>
+                    <div class="registro-evento">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <strong>TB001 (Lucero) / TB002 (Relámpago)</strong>
+                                <br>
+                                <small>Monta natural - Diagnóstico pendienteel 15/09/2026</small>
+                            </div>
+                            <span class="estado-pendiente">Pendiente confirmación</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

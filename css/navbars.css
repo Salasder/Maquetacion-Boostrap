@@ -1,0 +1,60 @@
+body {
+  padding-bottom: 20px;
+}
+
+.navbar {
+  margin-bottom: 20px;
+}
+
+.titulo-header {
+  font-family: Georgia, serif;
+  font-size: 16px;
+  font-weight: bold;
+  color: #111;
+}
+
+.subtitulo-header {
+  font-size: 8px;
+  color: #777;
+}
+
+.btn-usuario {
+  width: 25px;
+  height: 25px;
+  border: none;
+  border-radius: 50%;
+  background-color: #f1f1f1;
+  font-size: 11px;
+}
+
+.servicio {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  padding: 10px 20px;
+  box-sizing: border-box;
+}
+
+.servicio-info h2 {
+  margin: 0;
+}
+
+.servicio-info p {
+  margin: 5px 0 0;
+}
+
+.btn-reproductores {
+  margin-left: auto;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.nav-link.active {
+  background-color: rgba(0, 0, 0, 0.20) !important;
+  color: white !important;
+  border-radius: 3px;
+}

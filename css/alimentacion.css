@@ -1,0 +1,425 @@
+
+
+.alimentacion-empty {
+    min-height: calc(100vh - 150px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.alimentacion-empty-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background-color: #eef5ed;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 12px;
+}
+
+.alimentacion-empty-icon i {
+    color: #315c36;
+    font-size: 17px;
+}
+
+.alimentacion-empty h2 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #303030;
+    margin-bottom: 5px;
+}
+
+.alimentacion-empty p {
+    font-size: 10px;
+    color: #888;
+    margin-bottom: 14px;
+}
+
+.btn-agregar-alimentacion {
+    background-color: #1d4d27;
+    border-color: #1d4d27;
+    font-size: 10px;
+    font-weight: 500;
+    padding: 6px 14px;
+    border-radius: 3px;
+}
+
+.btn-agregar-alimentacion:hover {
+    background-color: #163c1e;
+    border-color: #163c1e;
+}
+
+.navbar-header {
+    padding: 14px 0 8px;
+}
+
+.servicio {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.servicio-info h2 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+}
+
+.servicio-info p {
+    margin: 3px 0 0;
+    font-size: 10px;
+    color: #888;
+}
+
+.btn-reproductores {
+    width: 30px;
+    height: 30px;
+    border: none;
+    background: transparent;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #315c36;
+    border-radius: 50%;
+}
+
+.btn-reproductores:hover {
+    background-color: #eef5ed;
+}
+
+.registro-exitoso-container {
+    min-height: calc(100vh - 100px);
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    padding-top: 95px;
+}
+
+
+.registro-exitoso-card {
+    width: 100%;
+    max-width: 430px;
+
+    background-color: #ffffff;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 7px;
+
+    padding: 30px 28px 28px;
+
+    text-align: center;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+
+.icono-exito {
+    width: 42px;
+    height: 42px;
+
+    margin: 0 auto 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #e8f5e9;
+
+    border-radius: 50%;
+
+    color: #277a35;
+
+    font-size: 17px;
+}
+
+
+.registro-exitoso-card h1 {
+    margin: 0 0 10px;
+
+    color: #222222;
+
+    font-size: 18px;
+    font-weight: 600;
+
+    line-height: 1.4;
+}
+
+
+
+.mensaje-exito {
+    margin: 0 auto 22px;
+
+    max-width: 330px;
+
+    color: #777777;
+
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.mensaje-exito strong {
+    color: #555555;
+    font-weight: 600;
+}
+
+
+
+.acciones-exito {
+    display: flex;
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+
+
+.btn-ver-registro {
+    width: 100%;
+
+    padding: 7px 12px;
+
+    border-radius: 4px;
+
+    background-color: #185c25;
+    border: 1px solid #185c25;
+
+    color: #ffffff;
+
+    font-size: 12px;
+    font-weight: 500;
+
+    transition: all 0.2s ease;
+}
+
+.btn-ver-registro:hover {
+    background-color: #12491c;
+    border-color: #12491c;
+
+    color: #ffffff;
+}
+
+
+
+.btn-volver-alimentacion {
+    width: 100%;
+
+    padding: 7px 12px;
+
+    border-radius: 4px;
+
+    background-color: #ffffff;
+    border: 1px solid #aebcaf;
+
+    color: #315a38;
+
+    font-size: 12px;
+    font-weight: 500;
+
+    transition: all 0.2s ease;
+}
+
+.btn-volver-alimentacion:hover {
+    background-color: #f3f7f3;
+    border-color: #315a38;
+
+    color: #24492a;
+}
+
+.detalle-alimentacion {
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.volver-alimentacion {
+    margin-bottom: 22px;
+}
+
+.volver-alimentacion a {
+    text-decoration: none;
+    color: #215d2c;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.volver-alimentacion a:hover {
+    color: #17451f;
+}
+
+.volver-alimentacion i {
+    margin-right: 6px;
+    font-size: 11px;
+}
+
+
+.detalle-card {
+    width: 100%;
+    max-width: 620px;
+    margin: 0 auto;
+
+    border: 1px solid #e5e5e5;
+    border-radius: 7px;
+
+    background-color: #ffffff;
+
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.detalle-card .card-body {
+    padding: 22px 26px 16px 26px;
+}
+
+
+
+.detalle-titulo {
+    margin-bottom: 22px;
+}
+
+.detalle-titulo h4 {
+    margin: 0 0 4px 0;
+
+    color: #242424;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.detalle-titulo p {
+    margin: 0;
+
+    color: #777;
+    font-size: 11px;
+}
+
+.detalle-datos {
+    width: 100%;
+}
+
+.detalle-fila {
+    display: flex;
+    align-items: flex-start;
+
+    min-height: 32px;
+
+    border-bottom: 1px solid #eeeeee;
+
+    font-size: 11px;
+}
+
+.detalle-fila:last-child {
+    border-bottom: none;
+}
+
+.detalle-label {
+    width: 155px;
+
+    padding: 8px 8px 8px 0;
+
+    color: #777;
+    font-weight: 500;
+}
+
+.detalle-valor {
+    flex: 1;
+
+    padding: 8px 0;
+
+    color: #333;
+    font-weight: 400;
+}
+
+
+
+.detalle-acciones {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    gap: 8px;
+
+    margin-top: 20px;
+}
+
+.btn-eliminar {
+    padding: 5px 13px;
+
+    color: #dc3545;
+    background-color: #ffffff;
+
+    border: 1px solid #dc3545;
+    border-radius: 4px;
+
+    font-size: 10px;
+}
+
+.btn-eliminar:hover {
+    color: #ffffff;
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+.btn-editar {
+    padding: 5px 13px;
+
+    color: #ffffff;
+    background-color: #198754;
+
+    border: 1px solid #198754;
+    border-radius: 4px;
+
+    font-size: 10px;
+}
+
+.btn-editar:hover {
+    color: #ffffff;
+    background-color: #157347;
+    border-color: #157347;
+}
+
+
+@media (max-width: 767px) {
+
+    .detalle-alimentacion {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    .detalle-card {
+        max-width: 100%;
+    }
+
+    .detalle-card .card-body {
+        padding: 18px;
+    }
+
+    .detalle-fila {
+        display: block;
+        padding: 7px 0;
+    }
+
+    .detalle-label {
+        display: block;
+        width: 100%;
+        padding: 0 0 3px 0;
+    }
+
+    .detalle-valor {
+        display: block;
+        padding: 0;
+    }
+
+    .detalle-acciones {
+        justify-content: flex-end;
+    }
+}

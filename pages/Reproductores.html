@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/dashboard/" />
+
+    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/navbars.css">
+    <script src="https://kit.fontawesome.com/352372337f.js" crossorigin="anonymous"></script>
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+
+        .b-example-divider {
+            width: 100%;
+            height: 3rem;
+            background-color: #0000001a;
+            border: solid rgba(0, 0, 0, 0.15);
+            border-width: 1px 0;
+            box-shadow:
+                inset 0 0.5em 1.5em #0000001a,
+                inset 0 0.125em 0.5em #00000026;
+        }
+
+        .b-example-vr {
+            flex-shrink: 0;
+            width: 1.5rem;
+            height: 100vh;
+        }
+
+        .bi {
+            vertical-align: -0.125em;
+            fill: currentColor;
+        }
+
+        .nav-scroller {
+            position: relative;
+            z-index: 2;
+            height: 2.75rem;
+            overflow-y: hidden;
+        }
+
+        .nav-scroller .nav {
+            display: flex;
+            flex-wrap: nowrap;
+            padding-bottom: 1rem;
+            margin-top: -1px;
+            overflow-x: auto;
+            text-align: center;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .btn-bd-primary {
+            --bd-violet-bg: #712cf9;
+            --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+            --bs-btn-font-weight: 600;
+            --bs-btn-color: var(--bs-white);
+            --bs-btn-bg: var(--bd-violet-bg);
+            --bs-btn-border-color: var(--bd-violet-bg);
+            --bs-btn-hover-color: var(--bs-white);
+            --bs-btn-hover-bg: #6528e0;
+            --bs-btn-hover-border-color: #6528e0;
+            --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+            --bs-btn-active-color: var(--bs-btn-hover-color);
+            --bs-btn-active-bg: #5a23c8;
+            --bs-btn-active-border-color: #5a23c8;
+        }
+
+        .bd-mode-toggle {
+            z-index: 1500;
+        }
+
+        .bd-mode-toggle .bi {
+            width: 1em;
+            height: 1em;
+        }
+
+        .bd-mode-toggle .dropdown-menu .active .bi {
+            display: block !important;
+        }
+    </style>
+</head>
+
+<body>
+    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+        <symbol id="check2" viewBox="0 0 16 16">
+            <path
+                d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z">
+            </path>
+        </symbol>
+        <symbol id="house-fill" viewBox="0 0 16 16">
+            <path
+                d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5Z">
+            </path>
+            <path d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6Z"></path>
+        </symbol>
+        <symbol id="graph-up" viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+                d="M0 0h1v15h15v1H0V0Zm14.817 3.113a.5.5 0 0 1 .07.704l-4.5 5.5a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61 4.15-5.073a.5.5 0 0 1 .704-.07Z">
+            </path>
+        </symbol>
+        <symbol id="cart" viewBox="0 0 16 16">
+            <path
+                d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5z">
+            </path>
+        </symbol>
+        <symbol id="people" viewBox="0 0 16 16">
+            <path
+                d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8Zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022ZM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z">
+            </path>
+        </symbol>
+        <symbol id="puzzle" viewBox="0 0 16 16">
+            <path
+                d="M3.112 3.645A1.5 1.5 0 0 1 4.605 2H7a.5.5 0 0 1 .5.5v.382c0 .696-.497 1.182-.872 1.469a.459.459 0 0 0-.115.118.113.113 0 0 0-.012.025L6.5 4.5v.003l.003.01c.004.01.014.028.036.053a.86.86 0 0 0 .27.194C7.09 4.9 7.51 5 8 5c.492 0 .912-.1 1.19-.24a.86.86 0 0 0 .271-.194.213.213 0 0 0 .039-.063v-.009a.112.112 0 0 0-.012-.025.459.459 0 0 0-.115-.118c-.375-.287-.872-.773-.872-1.469V2.5A.5.5 0 0 1 9 2h2.395a1.5 1.5 0 0 1 1.493 1.645L12.645 6.5h.237c.195 0 .42-.147.675-.48.21-.274.528-.52.943-.52.568 0 .947.447 1.154.862C15.877 6.807 16 7.387 16 8s-.123 1.193-.346 1.638c-.207.415-.586.862-1.154.862-.415 0-.733-.246-.943-.52-.255-.333-.48-.48-.675-.48h-.237l.243 2.855A1.5 1.5 0 0 1 11.395 14H9a.5.5 0 0 1-.5-.5v-.382c0-.696.497-1.182.872-1.469a.459.459 0 0 0 .115-.118.113.113 0 0 0 .012-.025L9.5 11.5v-.003a.214.214 0 0 0-.039-.064.859.859 0 0 0-.27-.193C8.91 11.1 8.49 11 8 11c-.491 0-.912.1-1.19.24a.859.859 0 0 0-.271.194.214.214 0 0 0-.039.063v.003l.001.006a.113.113 0 0 0 .012.025c.016.027.05.068.115.118.375.287.872.773.872 1.469v.382a.5.5 0 0 1-.5.5H4.605a1.5 1.5 0 0 1-1.493-1.645L3.356 9.5h-.238c-.195 0-.42.147-.675.48-.21.274-.528.52-.943.52-.568 0-.947-.447-1.154-.862C.123 9.193 0 8.613 0 8s.123-1.193.346-1.638C.553 5.947.932 5.5 1.5 5.5c.415 0 .733.246.943.52.255.333.48.48.675.48h.238l-.244-2.855z">
+            </path>
+        </symbol>
+        <symbol id="gear-wide-connected" viewBox="0 0 16 16">
+            <path
+                d="M7.068.727c.243-.97 1.62-.97 1.864 0l.071.286a.96.96 0 0 0 1.622.434l.205-.211c.695-.719 1.888-.03 1.613.931l-.08.284a.96.96 0 0 0 1.187 1.187l.283-.081c.96-.275 1.65.918.931 1.613l-.211.205a.96.96 0 0 0 .434 1.622l.286.071c.97.243.97 1.62 0 1.864l-.286.071a.96.96 0 0 0-.434 1.622l.211.205c.719.695.03 1.888-.931 1.613l-.284-.08a.96.96 0 0 0-1.187 1.187l.081.283c.275.96-.918 1.65-1.613.931l-.205-.211a.96.96 0 0 0-1.622.434l-.071.286c-.243.97-1.62.97-1.864 0l-.071-.286a.96.96 0 0 0-1.622-.434l-.205.211c-.695.719-1.888-.03-1.613-.931l.08-.284a.96.96 0 0 0-1.186-1.187l-.284.081c-.96-.275-1.65.918-.931 1.613l.211.205a.96.96 0 0 0-.434 1.622l-.286.071c-.97.243-.97 1.62 0 1.864l.286.071a.96.96 0 0 0 .434 1.622l-.211.205c-.719.695-.03 1.888.931 1.613l.284-.08a.96.96 0 0 0 1.187 1.187l-.081.283c-.275.96.918 1.65 1.613.931l.205-.211a.96.96 0 0 0 1.622.434l.071-.286c.243-.97 1.62-.97 1.864 0l.071.286a.96.96 0 0 0 1.622-.434l.205.211c.695.719 1.888.03 1.613-.931l-.08-.284a.96.96 0 0 0 1.187-1.187l.283.081c.96.275 1.65-.918.931-1.613l-.211-.205a.96.96 0 0 0-.434-1.622l-.286-.071c-.97-.243-.97-1.62 0-1.864l.286-.071a.96.96 0 0 0 .434-1.622l-.211-.205c-.719-.695-.03-1.888.931-1.613l.284.08a.96.96 0 0 0 1.187-1.186l-.081-.284c.275-.96-.918-1.65-1.613-.931l-.205.211a.96.96 0 0 0-1.622-.434l-.071-.286z">
+            </path>
+        </symbol>
+        <symbol id="door-closed" viewBox="0 0 16 16">
+            <path d="M3 2a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v13h1.5a.5.5 0 0 1 0 1h-13a.5.5 0 0 1 0-1H3V2zm1 13h8V2H4v13z">
+            </path>
+            <path d="M9 9a1 1 0 1 0 2 0 1 1 0 0 0-2 0z"></path>
+        </symbol>
+    </svg>
+    <div class="row">
+        <div class="sidebar border border-right col-md-3 col-lg-2 p-0 fondo-menu">
+            <div class="offcanvas-md offcanvas-end fondo-menu" tabindex="-1" id="sidebarMenu"
+                aria-labelledby="sidebarMenuLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="sidebarMenuLabel">
+                        Company name
+                    </h5>
+
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarMenu"
+                        aria-label="Close">
+                    </button>
+                </div>
+                <div class="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
+
+                    <ul class="nav flex-column">
+
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center gap-2 text-light" href="#">
+                                <svg class="bi" aria-hidden="true">
+                                    <use xlink:href="#house-fill"></use>
+                                </svg>
+                                TERRABOVINOS
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center gap-2 text-light" href="#">
+                                <div class="usuario-info">
+                                    <div class="nombre-usuario">
+                                        Daniel Salas
+                                    </div>
+
+                                    <div class="rol-usuario">
+                                        Administrador
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center gap-2 text-light" href="#">
+                                <svg class="bi" aria-hidden="true">
+                                    <use xlink:href="#graph-up"></use>
+                                </svg>
+                                Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center gap-2 text-light" href="#"><i
+                                    class="fa fa-cow"></i>
+                                Mi ganado
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center gap-2 text-light" href="#"><i
+                                    class="fa fa-heart"></i>
+                                Sanidad
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center gap-2 text-light" href="Alimentacion.html">
+                                <i class="fa-solid fa-utensils"></i>
+                                Alimentación
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center gap-2 active text-light"
+                                href="Reproductores.html">
+                                <i class="fa fa-venus-mars"></i>
+                                Reproducción
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center gap-2 text-light" href="#">
+                                <i class="fa-solid fa-chart-line"></i>
+                                Producción
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center gap-2 text-light" href="#"><i
+                                    class="fa-utility-duo fa fa-map"></i>
+                                Potreros
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center gap-2 text-light" href="#"><i
+                                    class="fa-solid fa-money-check-dollar"></i>
+                                Gestión Comercial
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center gap-2 text-light" href="#">
+                                <i class="fa-solid fa-boxes-stacked"></i>
+                                Inventario e Insumos
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center gap-2 text-light" href="#"><i
+                                    class="fa-solid fa-chalkboard-user"></i>
+                                Aprende
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center gap-2 text-light" href="#"><i
+                                    class="fa-solid fa-chart-column"></i>
+                                Reportes
+                            </a>
+                        </li>
+                        <hr class="my-3" />
+                    </ul>
+                    <ul class="nav flex-column mb-auto">
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center gap-2 text-light" href="#"><i
+                                    class="fa fa-gear"></i>
+                                Configuración
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center gap-2 text-light" href="#">
+                                <svg class="bi" aria-hidden="true">
+                                    <use xlink:href="#door-closed"></use>
+                                </svg>
+                                Cerrar Sesión
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+            <nav class="navbar navbar-header">
+                <div class="container-fluid">
+                    <div class="servicio">
+                        <div class="servicio-info">
+                            <h2>Servicio de Reproductores</h2>
+                            <p>Gestión de monta, inseminación artificial y sementales disponibles</p>
+                        </div>
+
+                        <button class="btn-reproductores"><i class="fa fa-bell"></i></button>
+                    </div>
+                </div>
+            </nav>
+            <hr>
+            <h2 class="h5 mt-4 mb-3">Sementales Destacados Disponibles</h2>
+            <div class="row g-4 mb-4">
+                <div class="col-md-6">
+                    <div class="card shadow-sm h-100">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <h5 class="card-title mb-0">Relámpago Jr.</h5>
+                                <span class="badge text-bg-success">Disponible</span>
+                            </div>
+                            <p class="card-text small mb-1">
+                                <strong>Raza:</strong> Brahman Puro
+                            </p>
+                            <p class="card-text small mb-1">
+                                <strong>Edad:</strong> 3 años | <strong>Peso:</strong> 580 kg
+                            </p>
+                            <p class="card-text small mb-1">
+                                <strong>Propietario:</strong> Finca El Porvenir
+                            </p>
+                            <p class="card-text small">
+                                <strong>Tipo de Servicio:</strong> Monta Natural
+                            </p>
+                            <hr>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <strong>$300.00 / Servicio</strong>
+                                <a href="Registro-reproductivo.html" class="btn btn-success btn-sm">
+                                    Solicitar servicio
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card shadow-sm h-100">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <h5 class="card-title mb-0">Hercules</h5>
+                                <span class="badge text-bg-success">Disponible</span>
+                            </div>
+                            <p class="card-text small mb-1">
+                                <strong>Raza:</strong> Red Angus de registro
+                            </p>
+                            <p class="card-text small mb-1">
+                                <strong>Edad:</strong> 4 años |
+                                <strong>Peso:</strong> 610 kg
+                            </p>
+                            <p class="card-text small mb-1">
+                                <strong>Propietario:</strong> Agrofinca Sementales
+                            </p>
+                            <p class="card-text small">
+                                <strong>Tipo de Servicio:</strong> Inseminación (Pajilla)
+                            </p>
+                            <hr>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <strong>$180.00 / Pajilla</strong>
+                                <a href="Registro-reproductivo.html" class="btn btn-success btn-sm">
+                                    Solicitar servicio
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card shadow-sm mb-4">
+                <div class="card-body">
+                    <h2 class="h5 mb-4">Registrar Solicitud de Servicio Reproductor</h2>
+                    <form>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="toro" class="form-label">Seleccionar Semental (Toro)</label>
+                                <select id="toro" class="form-select">
+                                    <option selected>Relámpago Jr. (Brahman)</option>
+                                    <option>Hércules Angus</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="hembra" class="form-label">Mi Hembra (Vientre)</label>
+                                <select id="hembra" class="form-select">
+                                    <option selected>TB003 - Estrella (Holstein)</option>
+                                    <option>TB004 - Luna (Brahman)</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="fecha" class="form-label">Fecha Solicitada</label>
+                                <input type="date" class="form-control" id="fecha" value="2026-08-15">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="modalidad" class="form-label">Modalidad de Servicio</label>
+                                <select id="modalidad" class="form-select">
+                                    <option selected>Monta Natural Directa</option>
+                                    <option>Inseminación Artificial</option>
+                                </select>
+                            </div>
+                            <div class="col-12">
+                                <label for="observaciones" class="form-label">Observaciones Sanitarias / Notas</label>
+                                <textarea class="form-control" id="observaciones" rows="2"
+                                    placeholder="Ingresa detalles o requerimientos especiales"></textarea>
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-success">Enviar Solicitud de Servicio</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="card shadow-sm mb-4">
+                <div class="card-body">
+                    <h2 class="h5 mb-3">Historial de Servicios</h2>
+                    <div class="table-responsive">
+                        <table class="table table-sm table-hover align-middle">
+                            <thead class="table-success">
+                                <tr>
+                                    <th>Fecha</th>
+                                    <th>Toro</th>
+                                    <th>Hembra (Vientre)</th>
+                                    <th>Propietario Toro</th>
+                                    <th>Estado</th>
+                                    <th class="text-end">Valor</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>01/08/2026</td>
+                                    <td><strong>Relámpago Jr.</strong></td>
+                                    <td>TB001 (Lucero)</td>
+                                    <td>Finca El Porvenir</td>
+                                    <td><span class="badge text-bg-warning">En Espera Celo</span></td>
+                                    <td class="text-end">$300.00</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

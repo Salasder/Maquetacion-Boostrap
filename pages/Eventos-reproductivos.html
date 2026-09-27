@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Eventos Reproductivos</title>
+
+    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/navbars.css">
+
+    <script src="https://kit.fontawesome.com/352372337f.js"
+        crossorigin="anonymous"></script>
+
+    <style>
+
+        body {
+            background-color: #f8f8f5;
+        }
+
+        /* CONTENEDOR PRINCIPAL */
+
+        .contenido-reproductivo {
+            padding-bottom: 40px;
+        }
+
+        /* ENCABEZADO */
+
+        .servicio-info h2 {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .servicio-info p {
+            color: #777;
+            font-size: 13px;
+            margin-bottom: 0;
+        }
+
+        /* TARJETAS DE RESUMEN */
+
+        .resumen-card {
+            background: #ffffff;
+            border: 1px solid #e5e5e5;
+            border-radius: 8px;
+            padding: 15px 16px;
+            min-height: 100px;
+        }
+
+        .resumen-card .titulo {
+            font-size: 11px;
+            color: #777;
+            margin-bottom: 8px;
+        }
+
+        .resumen-card .numero {
+            font-size: 20px;
+            font-weight: 600;
+            color: #222;
+            line-height: 1;
+        }
+
+        .resumen-card .descripcion {
+            font-size: 10px;
+            color: #999;
+            margin-top: 7px;
+        }
+
+        .icono-resumen {
+            width: 15px;
+            height: 15px;
+            background-color: #e8f1e8;
+            border-radius: 4px;
+        }
+
+        /* BOTÓN PRINCIPAL */
+
+        .btn-evento {
+            background-color: #286b31;
+            border-color: #286b31;
+            color: white;
+            font-size: 12px;
+            padding: 7px 12px;
+            border-radius: 5px;
+        }
+
+        .btn-evento:hover {
+            background-color: #205927;
+            border-color: #205927;
+            color: white;
+        }
+
+        /* FILTROS */
+
+        .filtros {
+            display: flex;
+            gap: 8px;
+            margin: 12px 0 18px;
+        }
+
+        .filtro {
+            background-color: #ffffff;
+            border: 1px solid #e5e5e5;
+            border-radius: 5px;
+            padding: 5px 10px;
+            color: #666;
+            font-size: 10px;
+        }
+
+        /* TABLA */
+
+        .tabla-contenedor {
+            background: #ffffff;
+            border: 1px solid #e2e2e2;
+            border-radius: 8px;
+            padding: 10px;
+        }
+
+        .tabs-reproductivas {
+            border-bottom: 1px solid #dddddd;
+            margin-bottom: 0;
+        }
+
+        .tabs-reproductivas .nav-link {
+            color: #666;
+            font-size: 11px;
+            border: none;
+            padding: 10px 15px;
+            background: transparent;
+        }
+
+        .tabs-reproductivas .nav-link.active {
+            color: #185c27;
+            border-bottom: 2px solid #185c27;
+            background: transparent;
+        }
+
+        .tabla-eventos {
+            margin-bottom: 0;
+        }
+
+        .tabla-eventos thead th {
+            background-color: #f0f3ed;
+            color: #444;
+            font-size: 10px;
+            font-weight: 600;
+            border-bottom: 1px solid #e3e3e3;
+            padding: 7px 9px;
+            white-space: nowrap;
+        }
+
+        .tabla-eventos tbody td {
+            font-size: 10px;
+            color: #555;
+            padding: 8px 9px;
+            vertical-align: middle;
+        }
+
+        .tabla-eventos tbody tr {
+            border-bottom: 1px solid #eeeeee;
+        }
+
+        .tabla-eventos tbody tr:last-child {
+            border-bottom: none;
+        }
+
+        /* ESTADOS */
+
+        .estado {
+            display: inline-block;
+            font-size: 9px;
+            padding: 4px 7px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+
+        .estado-exitosa {
+            background-color: #c9ef50;
+            color: #315500;
+        }
+
+        .estado-pendiente {
+            background-color: #fff0a6;
+            color: #806500;
+        }
+
+        .estado-fallida {
+            background-color: #ffb7ad;
+            color: #8a2c22;
+        }
+
+        /* ENLACES DE ANIMALES */
+
+        .animal {
+            color: #286b31;
+            font-weight: 600;
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 768px) {
+
+            .filtros {
+                flex-wrap: wrap;
+            }
+
+            .tabla-contenedor {
+                overflow-x: auto;
+            }
+
+            .btn-evento {
+                margin-top: 10px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="row">
+        <div class="sidebar border border-right col-md-3 col-lg-2 p-0 fondo-menu">
+            <div class="offcanvas-md offcanvas-end fondo-menu"
+                tabindex="-1"
+                id="sidebarMenu">
+                <div class="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
+                    <ul class="nav flex-column">
+
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center gap-2 text-light"href="#"><i class="fa fa-cow"></i>TERRABOVINOS
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center gap-2 text-light"href="#">
+                                <div class="usuario-info">
+                                    <div class="nombre-usuario">Daniel Salas</div>
+                                    <div class="rol-usuario">Administrador</div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center gap-2 text-light" href="#"><i class="fa fa-chart-line"></i>
+                                Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center gap-2 text-light" href="#"><i class="fa fa-cow"></i>
+                                Mi ganado
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center gap-2 text-light" href="#"><i class="fa fa-heart"></i>
+                                Sanidad
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center gap-2 text-light" href="Alimentacion.html"><i class="fa fa-utensils"></i>
+                                Alimentación
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center gap-2 active text-light" href="Reproductores.html"><i class="fa fa-venus-mars"></i>
+                                Reproducción
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center gap-2 text-light"href="#"><i class="fa fa-chart-line"></i>
+                                Producción
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center gap-2 text-light"href="#"><i class="fa fa-map"></i>
+                                Potreros
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center gap-2 text-light"href="#"><i class="fa fa-money-check-dollar"></i>
+                                Gestión Comercial
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center gap-2 text-light"href="#"><i class="fa fa-boxes-stacked"></i>
+                                Inventario e Insumos
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center gap-2 text-light"href="#"><i class="fa fa-chalkboard-user"></i>
+                                Aprende
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center gap-2 text-light"href="#"><i class="fa fa-chart-column"></i>
+                                Reportes
+                            </a>
+                        </li>
+                        <hr class="my-3">
+                    </ul>
+                    <ul class="nav flex-column mb-auto">
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center gap-2 text-light"href="#"><i class="fa fa-gear"></i>
+                                Configuración
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center gap-2 text-light"href="#"><i class="fa fa-door-closed"></i>
+                                Cerrar Sesión
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 contenido-reproductivo">
+            <nav class="navbar navbar-header">
+                <div class="container-fluid">
+                    <div class="servicio w-100">
+                        <div class="servicio-info">
+                            <h2>Eventos Reproductivos</h2>
+                            <p>Gestión de montas, inseminaciones, gestaciones y partos</p>
+                        </div>
+                        <button class="btn-reproductores"><i class="fa fa-bell"></i></button>
+                    </div>
+                </div>
+            </nav>
+            <hr>
+            <div class="row g-3 mb-3">
+                <div class="col-sm-6 col-xl-3">
+                    <div class="resumen-card">
+                        <div class="d-flex justify-content-between">
+                            <div class="titulo">Montas Registradas</div>
+                            <div class="icono-resumen"></div>
+                        </div>
+                        <div class="numero">32</div>
+                        <div class="descripcion">Campaña actual</div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-xl-3">
+                    <div class="resumen-card">
+                        <div class="d-flex justify-content-between">
+                            <div class="titulo">Inseminaciones</div>
+                            <div class="icono-resumen"></div>
+                        </div>
+                        <div class="numero">18</div>
+                        <div class="descripcion">Dr. Silva</div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-xl-3">
+                    <div class="resumen-card">
+                        <div class="d-flex justify-content-between">
+                            <div class="titulo">Gestaciones Activas</div>
+                            <div class="icono-resumen"></div>
+                        </div>
+                        <div class="numero">12</div>
+                        <div class="descripcion">
+                            <span class="badge text-bg-primary">Control</span>
+                            Confirmadas
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-xl-3">
+                    <div class="resumen-card">
+                        <div class="d-flex justify-content-between">
+                            <div class="titulo">Partos del Periodo</div>
+                            <div class="icono-resumen"></div>
+                        </div>
+                        <div class="numero">9</div>
+                        <div class="descripcion">Esperados este trimestre</div>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="filtros">
+                    <div class="filtro">Fecha: Todo el mes</div>
+                    <div class="filtro">Método: Todos</div>
+                    <div class="filtro">Resultado: Todos</div>
+                </div>
+                <a href="Registro-reproductivo.html"class="btn btn-evento"><i class="fa fa-plus me-1"></i>Registrar Evento Reproductivo</a>
+            </div>
+            <div class="tabla-contenedor">
+                <ul class="nav tabs-reproductivas">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Montas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Inseminaciones</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Gestaciones</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Partos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Antecedentes</a>
+                    </li>
+                </ul>
+                <div class="table-responsive">
+                    <table class="table tabla-eventos">
+                        <thead>
+                            <tr>
+                                <th>Fecha</th>
+                                <th>Hembra</th>
+                                <th>Macho/Toro</th>
+                                <th>Método</th>
+                                <th>Resultado</th>
+                                <th>Observaciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>15/08/2026</td>
+                                <td>
+                                    <span class="animal">TB001 (Lucero)</span>
+                                </td>
+                                <td>TB002 (Relámpago)</td>
+                                <td>Monta natural</td>
+                                <td>
+                                    <span class="estado estado-exitosa">Exitosa</span>
+                                </td>
+                                <td>Preñez confirmada por ecografía</td>
+                            </tr>
+                            <tr>
+                                <td>14/08/2026</td>
+                                <td>
+                                    <span class="animal">TB045 (Diana)</span>
+                                </td>
+                                <td>Toro Centauro</td>
+                                <td>Inseminación</td>
+                                <td>
+                                    <span class="estado estado-pendiente">Pendiente</span>
+                                </td>
+                                <td>Diagnóstico programado para 15/09</td>
+                            </tr>
+                            <tr>
+                                <td>10/08/2026</td>
+                                <td>
+                                    <span class="animal">TB088 (Mariposa)</span>
+                                </td>
+                                <td>TB009 (Faraón)</td>
+                                <td>Monta natural</td>
+                                <td>
+                                    <span class="estado estado-fallida">Fallida</span>
+                                </td>
+                                <td>Repitió celo a los 21 días</td>
+                            </tr>
+                            <tr>
+                                <td>05/08/2026</td>
+                                <td>
+                                    <span class="animal">TB102 (Dalia)</span>
+                                </td>
+                                <td>Toro Ares</td>
+                                <td>Inseminación</td>
+                                <td>
+                                    <span class="estado estado-exitosa">Exitosa</span>
+                                </td>
+                                <td>Confirmado preñez en palpación rectal</td>
+                            </tr>
+                            <tr>
+                                <td>01/08/2026</td>
+                                <td>
+                                    <span class="animal">TB032 (Blanca)</span>
+                                </td>
+                                <td>TB002 (Relámpago)</td>
+                                <td>Monta natural</td>
+                                <td>
+                                    <span class="estado estado-pendiente">Pendiente</span>
+                                </td>
+                                <td>Primer servicio de la temporada</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
