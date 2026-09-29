@@ -1,0 +1,62 @@
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: #f4f6f7;
+}
+
+.barra-lateral {
+    position: fixed;
+    width: 250px;
+    height: 100vh;
+    background-color: #1f2937;
+    padding: 25px 15px;
+}
+
+.marca-logo {
+    color: white;
+    font-weight: 700;
+}
+
+.perfil-usuario {
+    margin: 30px 0;
+    padding: 15px;
+}
+
+.enlace-navegacion {
+    color: white;
+    text-decoration: none;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 5px;
+}
+
+.enlace-navegacion:hover,
+.enlace-navegacion.activo {
+    background-color: #198754;
+}
+
+.contenido-principal {
+    margin-left: 250px;
+    padding: 40px;
+}
+
+.tarjeta-metrica {
+    background-color: white;
+    border-radius: 12px;
+    padding: 20px;
+    border: 1px solid #e5e7eb;
+}
+
+@media (max-width: 768px) {
+
+    .barra-lateral {
+        position: relative;
+        width: 100%;
+        height: auto;
+    }
+
+    .contenido-principal {
+        margin-left: 0;
+        padding: 20px;
+    }
+
+}
