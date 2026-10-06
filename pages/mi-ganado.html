@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Terrabovino - Mi Ganado</title>
+
+    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/navbars.css">
+    <link rel="stylesheet" href="../css/mi-ganado.css">
+    <script src="https://kit.fontawesome.com/352372337f.js" crossorigin="anonymous"></script>
+
+    <style>
+        .contenido-ganado {
+            padding: 32px;
+        }
+
+        .titulo-pagina {
+            font-family: Georgia, "Times New Roman", serif;
+            font-weight: 700;
+        }
+
+        .tarjeta-resumen {
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            background-color: #fff;
+            padding: 10px 18px;
+            text-align: center;
+            min-width: 120px;
+        }
+
+        .tarjeta-resumen small {
+            display: block;
+            color: #6c757d;
+            font-size: 0.7rem;
+        }
+
+        .tarjeta-resumen span {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .tarjeta-tabla {
+            background-color: #fff;
+            border: 1px solid #dee2e6;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .etiqueta-estado {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .estado-activo {
+            color: #198754;
+            background-color: #d1e7dd;
+        }
+
+        .tabla-ganado th {
+            font-size: 0.8rem;
+            color: #6c757d;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .tabla-ganado td {
+            white-space: nowrap;
+        }
+
+        .boton-registrar {
+            font-weight: 600;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        @media (max-width: 767.98px) {
+            .contenido-ganado {
+                padding: 20px 15px;
+            }
+
+            .cabecera-ganado {
+                flex-direction: column;
+                align-items: flex-start !important;
+                gap: 15px;
+            }
+
+            .boton-registrar {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="row g-0">
+
+        <div class="sidebar border border-right col-md-3 col-lg-2 p-0 fondo-menu">
+
+            <div class="offcanvas-md offcanvas-end fondo-menu" tabindex="-1" id="sidebarMenu"
+                aria-labelledby="sidebarMenuLabel">
+                <!-- Encabezado móvil -->
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title text-light" id="sidebarMenuLabel">
+                        TERRABOVINOS
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                        data-bs-target="#sidebarMenu" aria-label="Cerrar">
+                    </button>
+                </div>
+                <div class="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
+
+                    <!-- Menú principal -->
+                    <ul class="nav flex-column">
+                        <!-- Logo -->
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center gap-2 text-light" href="dashboard.html">
+                                <i class="fa-solid fa-shield-halved"></i>
+                                TERRABOVINOS
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center gap-2 text-light" href="#">
+                                <div class="usuario-info">
+                                    <div class="nombre-usuario">
+                                        Marcos Garcia
+                                    </div>
+                                    <div class="rol-usuario">
+                                        Ganadero de pura sepa
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <!-- Dashboard -->
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center gap-2 text-light" href="dashboard.html">
+                                <i class="fa-solid fa-chart-line"></i>
+                                Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center gap-2 active text-light" href="mi-ganado.html">
+                                <i class="fa-solid fa-cow"></i>
+                                Mi ganado
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center gap-2 text-light" href="#">
+                                <i class="fa-solid fa-heart-pulse"></i>
+                                Sanidad
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center gap-2 text-light" href="Alimentacion.html">
+                                <i class="fa-solid fa-utensils"></i>
+                                Alimentación
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center gap-2 text-light" href="Reproductores.html">
+                                <i class="fa-solid fa-venus-mars"></i>
+                                Reproducción
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center gap-2 text-light" href="#">
+                                <i class="fa-solid fa-chart-line"></i>
+                                Producción
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center gap-2 text-light" href="#">
+                                <i class="fa-solid fa-map"></i>
+                                Potreros
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center gap-2 text-light" href="#">
+                                <i class="fa-solid fa-money-check-dollar"></i>
+                                Gestión Comercial
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center gap-2 text-light" href="#">
+                                <i class="fa-solid fa-boxes-stacked"></i>
+                                Inventario e Insumos
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center gap-2 text-light" href="#">
+                                <i class="fa-solid fa-chalkboard-user"></i>
+                                Aprende
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center gap-2 text-light"
+                                href="reportes_principal.html">
+                                <i class="fa-solid fa-chart-column"></i>
+                                Reportes
+                            </a>
+                        </li>
+                        <hr class="my-3" />
+                    </ul>
+                    <ul class="nav flex-column mb-auto">
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center gap-2 text-light" href="#">
+                                <i class="fa-solid fa-gear"></i>Configuración</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center gap-2 text-light" href="#">
+                                <i class="fa-solid fa-door-closed"></i>Cerrar Sesión</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <main class="col-md-9 col-lg-10 ms-sm-auto contenido-ganado">
+            <div class="d-flex justify-content-between align-items-center mb-4 cabecera-ganado">
+
+                <div>
+                    <h2 class="titulo-pagina mb-1">
+                        Mi Ganado
+                    </h2>
+                    <p class="text-muted small mb-0">
+                        Administra el inventario de tu ganado activo.
+                    </p>
+
+                </div>
+                <a href="MG-registrar-animal.html" class="btn btn-success boton-registrar">
+
+                    <i class="fa-solid fa-plus me-1"></i>
+
+                    Registrar bovino
+
+                </a>
+            </div>
+            <div class="d-flex flex-wrap gap-2 mb-4">
+                <div class="tarjeta-resumen">
+                    <small>Total de bovinos</small>
+                    <span>48</span>
+                </div>
+                <div class="tarjeta-resumen">
+                    <small>Hembras</small>
+                    <span>32</span>
+                </div>
+                <div class="tarjeta-resumen">
+                    <small>Machos</small>
+                    <span>16</span>
+                </div>
+                <div class="tarjeta-resumen">
+                    <small>Terneros</small>
+                    <span>12</span>
+                </div>
+            </div>
+            <div class="tarjeta-tabla">
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle mb-0 tabla-ganado">
+                        <thead class="table-light">
+                            <tr>
+                                <th class="py-3 ps-3">ID</th>
+                                <th>Nombre</th>
+                                <th>Raza</th>
+                                <th>Sexo</th>
+                                <th>Edad</th>
+                                <th>Peso</th>
+                                <th>Estado</th>
+                                <th class="text-end pe-3">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="ps-3 fw-semibold">TB001</td>
+                                <td>CAMPEON</td>
+                                <td>Normando puro</td>
+                                <td>Macho</td>
+                                <td>3 años</td>
+                                <td>1300 kg</td>
+                                <td><span class="etiqueta-estado estado-activo">Activo</span></td>
+                                <td class="text-end pe-3">
+                                    <a href="MG-detalle-animal.html" class="btn btn-sm btn-light border">Ver ficha</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="ps-3 fw-semibold">
+                                    TB002</td>
+                                <td>Moro</td>
+                                <td>Gyr</td>
+                                <td>Macho</td>
+                                <td>1 año</td>
+                                <td>344 kg</td>
+                                <td>
+                                    <span class="etiqueta-estado estado-activo">
+                                        Activo
+                                    </span>
+                                </td>
+                                <td class="text-end pe-3">
+                                    <a href="MG-detalle-animal.html" class="btn btn-sm btn-light border">
+                                        Ver ficha
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+
+                                <td class="ps-3 fw-semibold">
+                                    TB003
+                                </td>
+
+                                <td>
+                                    Scoot
+                                </td>
+
+                                <td>
+                                    Normando
+                                </td>
+
+                                <td>
+                                    Macho
+                                </td>
+
+                                <td>
+                                    3 años
+                                </td>
+                                <td>
+                                    580 kg
+                                </td>
+                                <td>
+                                    <span class="etiqueta-estado estado-activo">
+                                        Activo
+                                    </span>
+                                </td>
+                                <td class="text-end pe-3">
+                                    <a href="MG-detalle-animal.html" class="btn btn-sm btn-light border">
+                                        Ver ficha
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

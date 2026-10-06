@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="light">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Terrabovino - Registrar Animal</title>
+
+    <!-- Bootstrap -->
+    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/352372337f.js" crossorigin="anonymous"></script>
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/navbars.css">
+    <link rel="stylesheet" href="../css/registrar-animal.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================================
+         BARRA LATERAL
+    ========================================================== -->
+
+    <div class="row g-0">
+
+        <div class="sidebar border border-right col-md-3 col-lg-2 p-0 fondo-menu">
+
+            <div class="offcanvas-md offcanvas-end fondo-menu"
+                tabindex="-1"
+                id="sidebarMenu"
+                aria-labelledby="sidebarMenuLabel">
+
+
+                <!-- Encabezado para móvil -->
+
+                <div class="offcanvas-header">
+
+                    <h5 class="offcanvas-title text-light" id="sidebarMenuLabel">
+                        TERRABOVINOS
+                    </h5>
+
+                    <button type="button"
+                        class="btn-close btn-close-white"
+                        data-bs-dismiss="offcanvas"
+                        data-bs-target="#sidebarMenu"
+                        aria-label="Cerrar">
+                    </button>
+
+                </div>
+
+
+                <div class="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
+
+
+                    <!-- =================================================
+                         MENÚ PRINCIPAL
+                    ================================================== -->
+
+                    <ul class="nav flex-column">
+
+
+                        <!-- Logo -->
+
+                        <li class="nav-item">
+
+                            <a class="nav-link d-flex align-items-center gap-2 text-light"
+                                href="dashboard.html">
+
+                                <i class="fa-solid fa-shield-halved"></i>
+
+                                TERRABOVINOS
+
+                            </a>
+
+                        </li>
+
+
+                        <!-- Usuario -->
+
+                        <li class="nav-item">
+
+                            <a class="nav-link d-flex align-items-center gap-2 text-light"
+                                href="#">
+
+                                <div class="usuario-info">
+
+                                    <div class="nombre-usuario">
+                                        Marcos Garcia
+                                    </div>
+
+                                    <div class="rol-usuario">
+                                        Ganadero de pura sepa
+                                    </div>
+
+                                </div>
+
+                            </a>
+
+                        </li>
+                        <li class="nav-item">
+
+                            <a class="nav-link d-flex align-items-center gap-2 text-light"
+                                href="dashboard.html">
+
+                                <i class="fa-solid fa-chart-line"></i>
+
+                                Dashboard
+
+                            </a>
+
+                        </li>
+                        <li class="nav-item">
+
+                            <a class="nav-link d-flex align-items-center gap-2 active text-light"
+                                href="mi-ganado.html">
+
+                                <i class="fa-solid fa-cow"></i>
+
+                                Mi ganado
+
+                            </a>
+
+                        </li>
+                        <li class="nav-item">
+
+                            <a class="nav-link d-flex align-items-center gap-2 text-light"
+                                href="#">
+
+                                <i class="fa-solid fa-heart-pulse"></i>
+
+                                Sanidad
+
+                            </a>
+
+                        </li>
+                        <li class="nav-item">
+
+                            <a class="nav-link d-flex align-items-center gap-2 text-light"
+                                href="Alimentacion.html">
+
+                                <i class="fa-solid fa-utensils"></i>
+
+                                Alimentación
+
+                            </a>
+
+                        </li>
+                        <li class="nav-item">
+
+                            <a class="nav-link d-flex align-items-center gap-2 text-light"
+                                href="Reproductores.html">
+
+                                <i class="fa-solid fa-venus-mars"></i>
+
+                                Reproducción
+
+                            </a>
+
+                        </li>
+                        <li class="nav-item">
+
+                            <a class="nav-link d-flex align-items-center gap-2 text-light"
+                                href="#">
+
+                                <i class="fa-solid fa-chart-line"></i>
+
+                                Producción
+
+                            </a>
+
+                        </li>
+                        <li class="nav-item">
+
+                            <a class="nav-link d-flex align-items-center gap-2 text-light"
+                                href="#">
+
+                                <i class="fa-solid fa-map"></i>
+
+                                Potreros
+
+                            </a>
+
+                        </li>
+                        <li class="nav-item">
+
+                            <a class="nav-link d-flex align-items-center gap-2 text-light"
+                                href="#">
+
+                                <i class="fa-solid fa-money-check-dollar"></i>
+
+                                Gestión Comercial
+
+                            </a>
+
+                        </li>
+
+                        <li class="nav-item">
+
+                            <a class="nav-link d-flex align-items-center gap-2 text-light"
+                                href="#">
+
+                                <i class="fa-solid fa-boxes-stacked"></i>
+
+                                Inventario e Insumos
+
+                            </a>
+                        </li>
+                        <li class="nav-item">
+
+                            <a class="nav-link d-flex align-items-center gap-2 text-light"
+                                href="#">
+
+                                <i class="fa-solid fa-chalkboard-user"></i>
+
+                                Aprende
+
+                            </a>
+
+                        </li>
+                        <li class="nav-item">
+
+                            <a class="nav-link d-flex align-items-center gap-2 text-light"
+                                href="reportes_principal.html">
+
+                                <i class="fa-solid fa-chart-column"></i>
+
+                                Reportes
+                            </a>
+                        </li>
+                        <hr class="my-3">
+                    </ul>
+                    <ul class="nav flex-column mb-auto">
+
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center gap-2 text-light"
+                                href="#">
+                                <i class="fa-solid fa-gear"></i>
+                                Configuración
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center gap-2 text-light"
+                                href="#">
+                                <i class="fa-solid fa-door-closed"></i>
+                                Cerrar Sesión
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <main class="col-md-9 col-lg-10 ms-sm-auto contenido-principal">
+            <div class="mb-4">
+                <h2 class="fw-bold mb-1" style="font-family: serif;">
+                    Registrar Nacimiento
+                </h2>
+                <p class="text-muted small mb-0">
+                    Completa los datos del nuevo ternero nacido en el hato.
+                </p>
+                <nav class="mt-2" style="font-size: 0.8rem;">
+                    <a href="mi-ganado.html"
+                        class="text-muted text-decoration-none">
+
+                        Mi ganado
+
+                    </a>
+                    <span class="mx-1">
+                        >
+                    </span>
+                    <span class="text-muted">
+                        Registrar bovino
+                    </span>
+                    <span class="mx-1">
+                        >
+                    </span>
+                    <span class="fw-semibold text-dark">
+                        Nacido
+                    </span>
+                </nav>
+            </div>
+            <div class="card shadow-sm border-0 mb-4">
+                <div class="card-body p-4">
+                    <h5 class="card-title fw-bold mb-3">
+                        Fotografía del Ejemplar
+                    </h5>
+                    <p class="text-muted small mb-3">
+                        Sube una imagen reciente o clara del animal
+                        para su identificación visual en el sistema.
+                    </p>
+                    <div class="row align-items-center">
+                        <div class="col-md-3 text-center mb-3 mb-md-0">
+                            <div class="border rounded bg-light
+                                        d-flex align-items-center
+                                        justify-content-center
+                                        overflow-hidden mx-auto"
+                                style="width: 120px; height: 120px;">
+                                <img id="vistaPreviaImagen"
+                                    src="#"
+                                    alt="Vista previa"
+                                    class="w-100 h-100 object-fit-cover d-none">
+                                <div id="iconoPlaceholder"
+                                    class="text-muted text-center">
+                                    <i class="fa-solid fa-camera fs-2"></i>
+                                    <div class="small">
+                                        Sin foto
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <label for="archivoFotoAnimal"
+                                class="form-label fw-semibold">
+                                Seleccionar archivo de imagen
+                            </label>
+                            <input class="form-control"
+                                type="file"
+                                id="archivoFotoAnimal"
+                                accept="image/*"
+                                onchange="mostrarVistaPrevia(event)">
+                            <div class="form-text">
+
+                                Formatos permitidos:
+                                JPG, PNG o WEBP.
+                                Tamaño máximo recomendado: 5 MB.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tarjeta-metrica p-4 mb-4">
+                <h5 class="fw-bold mb-3"
+                    style="font-size: 1rem;">
+                    Datos del ternero
+                </h5>
+                <div class="row g-3">
+                    <div class="col-md-4">
+                        <label class="form-label text-muted small">
+                            ID (Auto-generado)
+                        </label>
+                        <input type="text"
+                            class="form-control bg-light"
+                            value="TB050"
+                            disabled>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label text-muted small">
+                            Nombre del ternero
+                        </label>
+                        <input type="text"
+                            class="form-control"
+                            placeholder="Escribe el nombre del ternero">
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label text-muted small">
+                            Sexo
+                        </label>
+                        <div class="d-flex gap-3 mt-2">
+                            <div class="form-check">
+                                <input class="form-check-input"
+                                    type="radio"
+                                    name="sexo"
+                                    id="sexoMacho"
+                                    value="Macho"
+                                    checked>
+                                <label class="form-check-label small"
+                                    for="sexoMacho">
+                                    Macho
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input"
+                                    type="radio"
+                                    name="sexo"
+                                    id="sexoHembra"
+                                    value="Hembra">
+                                <label class="form-check-label small"for="sexoHembra">Hembra</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label text-muted small">Fecha y hora de nacimiento</label>
+                        <input type="text"class="form-control"placeholder="DD/MM/AAAA --:--">
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label text-muted small">Peso al nacer (kg)</label>
+                        <input type="text"class="form-control"placeholder="Peso inicial del ternero">
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label text-muted small">Raza</label>
+                        <select class="form-select">
+                            <option selected>Brahman (Puro)</option>
+                            <option>Holstein</option>
+                            <option>Gyr</option>
+                            <option>Normando</option>
+                            <option>Angus</option>
+                            <option>Simmental</option>
+                            <option>Jersey</option>
+                            <option>Otra</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <button type="button"
+                class="btn btn-success fw-semibold px-4">
+
+                <i class="fa-solid fa-floppy-disk me-2"></i>
+
+                Guardar Registro Bovino
+
+            </button>
+        </main>
+
+
+    </div>
+    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
